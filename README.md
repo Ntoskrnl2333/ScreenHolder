@@ -1,2 +1,2 @@
 # ScreenHolder
-A tool to prevent screen from turning off
+A tool to prevent screen from turning off for Windows
