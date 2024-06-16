@@ -11,6 +11,7 @@ typedef unsigned int uint;
 #endif
 
 #include "resource.h"		// 主符号
+#include <thread>
 
 
 // CScreenHolderApp:
@@ -40,8 +41,20 @@ namespace SH {
 	enum {
 		MM_LR,//left and right
 		MM_UD,//up and down
-		MM_LD_RU,//from upper left to lower right
+		MM_ULLR,//from upper left to lower right
+		MM_LLUR,//from lower left to upper right
+		MM_CR,//clockwise rotation
+		MM_ACR,//anticlockwise rotation
 	};
 
-	extern void HoldScreenMainThread();
+	extern uint Hdis, Vdis; //horizontal distance,vertical distance
+	extern uint Speed; //pixel per sec
+	extern bool HoldScreen, MainThreadWorking;
+	extern std::thread* MainThreadPtr;
+	
+	extern void StartMainThread();
+	extern void RestartMainThread();
+	extern void StopMainThread();
+	extern void MainThread();
+	extern void Exit();
 }

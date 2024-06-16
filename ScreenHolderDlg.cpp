@@ -65,6 +65,8 @@ BEGIN_MESSAGE_MAP(CScreenHolderDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_HOLDSCR, &CScreenHolderDlg::OnBnClickedHoldscr)
+	ON_BN_CLICKED(IDC_EXIT, &CScreenHolderDlg::OnBnClickedExit)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +155,19 @@ HCURSOR CScreenHolderDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+void CScreenHolderDlg::OnBnClickedHoldscr()
+{
+	bool static hold_screen = false;
+	hold_screen = hold_screen?false:true;
+	if (hold_screen)
+		SH::StartMainThread();
+	else
+		SH::StopMainThread();
+}
+
+
+void CScreenHolderDlg::OnBnClickedExit()
+{
+	SH::Exit();
+}

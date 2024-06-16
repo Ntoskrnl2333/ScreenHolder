@@ -199,6 +199,7 @@
     </ClCompile>
     <ClCompile Include="ScreenHolder.cpp" />
     <ClCompile Include="ScreenHolderDlg.cpp" />
+    <ClCompile Include="SH.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ScreenHolder.rc" />
